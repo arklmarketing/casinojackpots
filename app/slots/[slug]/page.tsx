@@ -5,12 +5,16 @@ import { buildMetadata, formatDate } from '@/lib/seo';
 import { slotReviewSchema } from '@/lib/schema';
 import { slots, getSlot } from '@/content/slots';
 import { getAuthor } from '@/content/authors';
+import { getJackpotValue } from '@/lib/jackpots';
+import JackpotBadge from '@/components/JackpotBadge';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Prose from '@/components/Prose';
 import Rating from '@/components/Rating';
 import FaqSection from '@/components/FaqSection';
 import RgBanner from '@/components/RgBanner';
 import JsonLd from '@/components/JsonLd';
+
+export const revalidate = 86400; // refresh jackpot values daily
 
 interface Props {
   params: { slug: string };
@@ -32,11 +36,12 @@ export function generateMetadata({ params }: Props): Metadata {
   });
 }
 
-export default function SlotReviewPage({ params }: Props) {
+export default async function SlotReviewPage({ params }: Props) {
   const slot = getSlot(params.slug);
   if (!slot) notFound();
 
   const author = getAuthor(slot.authorId);
+  const jackpotValue = await getJackpotValue(slot.slug);
 
   return (
     <article className="mx-auto max-w-3xl">
@@ -57,6 +62,12 @@ export default function SlotReviewPage({ params }: Props) {
           By {author.name} · Updated {formatDate(slot.lastUpdated)}
         </span>
       </div>
+
+      {jackpotValue && (
+        <div className="mt-6">
+          <JackpotBadge value={jackpotValue} />
+        </div>
+      )}
 
       {/* Key facts */}
       <dl className="mt-6 grid grid-cols-2 gap-3 rounded-xl border border-ink-600 bg-ink-800 p-5 text-sm sm:grid-cols-3">

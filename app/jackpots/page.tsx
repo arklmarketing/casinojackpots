@@ -3,9 +3,12 @@ import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 import { getLatestNews } from '@/content/news';
 import { slots } from '@/content/slots';
+import { getJackpotValues, formatJackpot } from '@/lib/jackpots';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ArticleCard from '@/components/ArticleCard';
 import RgBanner from '@/components/RgBanner';
+
+export const revalidate = 86400; // refresh jackpot values daily
 
 export const metadata: Metadata = buildMetadata({
   title: 'Casino Jackpots — Progressive Jackpot Tracker, News & Biggest Wins',
@@ -14,9 +17,11 @@ export const metadata: Metadata = buildMetadata({
   path: '/jackpots',
 });
 
-export default function JackpotsHubPage() {
+export default async function JackpotsHubPage() {
   const progressives = slots.filter((s) => s.jackpotType === 'progressive');
   const latestNews = getLatestNews();
+  const jackpotValues = await getJackpotValues();
+  const anyLive = jackpotValues.some((v) => v.isLive);
 
   return (
     <>
@@ -60,28 +65,39 @@ export default function JackpotsHubPage() {
                 <th className="px-4 py-3">Slot</th>
                 <th className="px-4 py-3">Provider</th>
                 <th className="px-4 py-3">Jackpot type</th>
+                <th className="px-4 py-3">Current jackpot</th>
                 <th className="px-4 py-3">RTP</th>
                 <th className="px-4 py-3">Review</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-ink-700 bg-ink-900">
-              {slots.map((slot) => (
-                <tr key={slot.slug} className="hover:bg-ink-800">
-                  <td className="px-4 py-3 font-semibold text-white">{slot.name}</td>
-                  <td className="px-4 py-3 text-slate-400">{slot.provider}</td>
-                  <td className="px-4 py-3 capitalize text-slate-400">{slot.jackpotType}</td>
-                  <td className="px-4 py-3 text-slate-400">{slot.rtp.split(' ')[0]}</td>
-                  <td className="px-4 py-3">
-                    <Link href={`/slots/${slot.slug}`} className="font-semibold text-gold-400 hover:text-gold-300">
-                      Read →
-                    </Link>
-                  </td>
-                </tr>
-              ))}
+              {slots.map((slot) => {
+                const value = jackpotValues.find((v) => v.slotSlug === slot.slug);
+                return (
+                  <tr key={slot.slug} className="hover:bg-ink-800">
+                    <td className="px-4 py-3 font-semibold text-white">{slot.name}</td>
+                    <td className="px-4 py-3 text-slate-400">{slot.provider}</td>
+                    <td className="px-4 py-3 capitalize text-slate-400">{slot.jackpotType}</td>
+                    <td className="px-4 py-3 font-bold text-gold-300">
+                      {value ? formatJackpot(value) : '—'}
+                      {value && !value.isLive && <span className="ml-1 text-xs font-normal text-slate-500">(sample)</span>}
+                    </td>
+                    <td className="px-4 py-3 text-slate-400">{slot.rtp.split(' ')[0]}</td>
+                    <td className="px-4 py-3">
+                      <Link href={`/slots/${slot.slug}`} className="font-semibold text-gold-400 hover:text-gold-300">
+                        Read →
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
         <p className="mt-3 text-xs text-slate-500">
+          {anyLive
+            ? 'Jackpot values refresh daily and may lag the in-game ticker. '
+            : 'Jackpot values shown are samples until the live feed is connected. '}
           RTP figures are provider-published values and can vary by operator — always check the game
           rules panel at your casino.
         </p>
