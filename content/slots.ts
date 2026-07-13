@@ -258,6 +258,378 @@ export const slots: SlotGame[] = [
     lastUpdated: '2026-07-01',
     authorId: 'editorial-team',
   },
+  {
+    slug: 'jackpot-king',
+    name: 'Jackpot King',
+    provider: 'Blueprint Gaming',
+    jackpotType: 'progressive',
+    rtp: 'Varies by base game, typically ~95% (verify per title)',
+    volatility: 'high',
+    maxWin: 'Jackpot King pot — multi-million network progressive',
+    reels: 'Varies by game',
+    paylines: 'Varies by game',
+    rating: 4.3,
+    metaTitle: 'Jackpot King Review 2026 — Blueprint’s Progressive Network',
+    metaDescription:
+      'Jackpot King review: how Blueprint Gaming’s Wheel King progressive works across 7s Deluxe, King Kong Cashpots and Deal or No Deal — with real UK win history.',
+    headline: 'The UK’s most active multi-million slot network',
+    intro:
+      'Jackpot King is Blueprint Gaming’s flagship progressive system, bolted onto dozens of popular UK slots — 7s Deluxe, King Kong Cashpots, Fishin’ Frenzy and the Deal or No Deal series among them. Its claim to fame is delivery: documented UK payouts include a £5.4 million King Kong Cashpots win in January 2023 and £4.3 million on Deal or No Deal Bankers Boost in October 2024, making it arguably the most productive non-Microgaming network for British players.',
+    sections: [
+      {
+        heading: 'How the Wheel King works',
+        paragraphs: [
+          'Land five Jackpot King overlay symbols across the reels of any participating game to enter the bonus ladder. Climb far enough and you reach the Wheel King — a wheel whose top segment awards the network-wide Jackpot King pot. Lower rungs pay the smaller Royal and Regal pots, so entries frequently return something even when the main prize escapes you.',
+          'Because the overlay system sits on top of ordinary slots, you choose your base game by taste — fruit machine, fishing or game-show branding — while chasing the same shared prize pool from any of them.',
+        ],
+      },
+      {
+        heading: 'Value and volatility',
+        paragraphs: [
+          'Base-game RTPs across the family sit around the 95% mark, a little below premium standalone slots, with roughly 1% feeding the pools. The pot cycle is healthy: the network pays multi-million prizes far more often than most rivals, though as always each spin’s odds are random and unaffected by pool size.',
+        ],
+      },
+    ],
+    verdict:
+      'The best progressive network for players who want variety: dozens of familiar base games, a proven multi-million payout record and a bonus ladder that pays something on most visits. Check each title’s RTP before you settle in — they vary.',
+    faqs: [
+      {
+        question: 'Which slots are part of Jackpot King?',
+        answer:
+          'Dozens of Blueprint Gaming titles including 7s Deluxe, King Kong Cashpots, Fishin’ Frenzy, Ted and the Deal or No Deal series. All feed and pay the same shared pots.',
+      },
+      {
+        question: 'What is the biggest Jackpot King win?',
+        answer:
+          'Documented UK wins include £5.4 million on King Kong Cashpots (January 2023) and £4.3 million on Deal or No Deal Bankers Boost (October 2024), both at Betfred.',
+      },
+    ],
+    lastUpdated: '2026-07-13',
+    authorId: 'editorial-team',
+  },
+  {
+    slug: 'mega-jackpots',
+    name: 'Mega Jackpots',
+    provider: 'IGT',
+    jackpotType: 'progressive',
+    rtp: 'Varies by base game (verify per title)',
+    volatility: 'high',
+    maxWin: 'MegaJackpots pool — seven-figure network progressive',
+    reels: 'Varies by game',
+    paylines: 'Varies by game',
+    rating: 4.0,
+    metaTitle: 'MegaJackpots Review 2026 — IGT’s Progressive Slots Network',
+    metaDescription:
+      'MegaJackpots review: IGT’s long-running progressive network across Cleopatra, Siberian Storm and Golden Goddess — mechanics, win history and honest verdict.',
+    headline: 'Vegas heritage with a seven-figure UK prize pool',
+    intro:
+      'MegaJackpots is IGT’s veteran progressive network, carrying some of the most recognisable names in slots: Cleopatra, Siberian Storm, Golden Goddess, Elephant King and more. It is the closest thing online to a Las Vegas linked-progressive bank — and it has UK form, including a £1.35 million Siberian Storm win in December 2023 and £1.3 million on Cleopatra in 2019.',
+    sections: [
+      {
+        heading: 'How it pays',
+        paragraphs: [
+          'Each participating game carries a MegaJackpots symbol or feature; line up the requirements — typically the jackpot symbols across a payline — and the full network pool is yours. There is no intermediate wheel or ladder in most titles, which makes it one of the more direct progressive mechanics: rare, but unambiguous when it lands.',
+          'The pool builds across all participating casinos and games, and typically drops in the high six to low seven figures for UK players.',
+        ],
+      },
+      {
+        heading: 'The games themselves',
+        paragraphs: [
+          'The base games are classic IGT: familiar Vegas mathematics, moderate feature sets and themes that have run for a decade or more. Cleopatra remains the standout — its free-spins round with tripled wins is a genuine classic. RTPs vary by title and operator build, so check the rules panel on the version you play.',
+        ],
+      },
+    ],
+    verdict:
+      'Choose MegaJackpots for the pedigree and the directness of its jackpot mechanic. The base games feel dated next to modern releases, but the network’s payout history is real and the top prizes are life-changing by any standard.',
+    faqs: [
+      {
+        question: 'Which slots are in the MegaJackpots network?',
+        answer:
+          'UK-facing titles include Cleopatra, Siberian Storm, Golden Goddess, Elephant King, Ocean Belles, Mistress of Egypt and Jungle Tower, among others.',
+      },
+      {
+        question: 'How do you win the MegaJackpots prize?',
+        answer:
+          'Requirements vary by game but typically involve landing the MegaJackpots symbols across a payline at qualifying stakes. The full network pool is paid to a single winner.',
+      },
+    ],
+    lastUpdated: '2026-07-13',
+    authorId: 'editorial-team',
+  },
+  {
+    slug: 'empire-treasures',
+    name: 'Empire Treasures',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    rtp: '~96% by title (Pride of Persia 95.99%; verify per game)',
+    volatility: 'medium',
+    maxWin: 'Empire Treasures top pot — six-figure progressive',
+    reels: '5 (typical)',
+    paylines: '40 (Wild Crusade; varies by title)',
+    rating: 3.9,
+    metaTitle: 'Empire Treasures Review 2026 — Playtech’s Jackpot Series',
+    metaDescription:
+      'Empire Treasures review: Playtech’s history-themed progressive series — Pride of Persia, Vikings, Wild Crusade — with strong ~96% RTPs and tiered jackpots.',
+    headline: 'The rare progressive series that keeps a full-strength RTP',
+    intro:
+      'Empire Treasures is Playtech’s history-themed jackpot family — Pride of Persia, Vikings, Wild Crusade, The Queen’s Curse and Rulers of the World — sharing a tiered progressive prize pool. Its quiet superpower is value: published base RTPs around 96% (Pride of Persia 95.99%, The Queen’s Curse 96.34%) make these some of the least punishing progressive slots you can play.',
+    sections: [
+      {
+        heading: 'The series and its jackpots',
+        paragraphs: [
+          'Each title wraps a different historical empire around solid five-reel gameplay — expanding wilds and multipliers in Wild Crusade, 40-line action in most of the family. The shared progressive pool sits on top, with tiered pots that keep smaller prizes dropping regularly while the top pot builds into six figures.',
+        ],
+      },
+      {
+        heading: 'Who it suits',
+        paragraphs: [
+          'This is the progressive family for players who refuse to pay the usual jackpot tax. With RTPs at or near the standard 96% benchmark, you give up very little session value for genuine jackpot eligibility — the trade-off that makes purists wince at Mega Moolah simply is not here. The ceiling is lower, but so is the cost of chasing it.',
+        ],
+      },
+    ],
+    verdict:
+      'The value pick among Playtech’s jackpot families: near-standard RTPs, handsome games and a tiered pool that pays often enough to feel alive. If you play progressives regularly rather than dreaming of one enormous hit, start here.',
+    faqs: [
+      {
+        question: 'Which games are in the Empire Treasures series?',
+        answer:
+          'Pride of Persia, Vikings, Wild Crusade, The Queen’s Curse and Rulers of the World, each sharing the same tiered progressive jackpot pool.',
+      },
+      {
+        question: 'What is the RTP of Empire Treasures slots?',
+        answer:
+          'Published figures sit around 96% — Pride of Persia at 95.99% and The Queen’s Curse at 96.34% — unusually high for progressive jackpot slots. Verify the build at your casino.',
+      },
+    ],
+    lastUpdated: '2026-07-13',
+    authorId: 'editorial-team',
+  },
+  {
+    slug: 'pixel-samurai',
+    name: 'Pixel Samurai',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    rtp: '92.99%–93.98% depending on build (verify with provider)',
+    volatility: 'high',
+    maxWin: 'Progressive jackpot + up to 50,000x cluster wins',
+    reels: '5×5 grid',
+    paylines: 'Cluster pays (no paylines)',
+    rating: 3.8,
+    metaTitle: 'Pixel Samurai Review 2026 — Retro Cluster Slot with a Jackpot',
+    metaDescription:
+      'Pixel Samurai review: Playtech’s 16-bit retro cluster slot with cascading wins and a progressive jackpot triggered by samurai clusters. RTP and verdict.',
+    headline: 'A 16-bit oddity hiding a serious progressive',
+    intro:
+      'Pixel Samurai is the outlier on our tracker: a retro, 16-bit-styled cluster slot from Playtech that plays nothing like the rest of the jackpot field. Wins form from clusters of five or more matching symbols on its 5×5 grid, cascades replace winning symbols, and the progressive jackpot triggers through clusters of the game’s samurai symbols — with the pot share growing the bigger the cluster you land.',
+    sections: [
+      {
+        heading: 'How the jackpot triggers',
+        paragraphs: [
+          'Land a cluster of eight or more of the top samurai symbols and the progressive pays out, alongside a fixed multiplier win — bigger clusters take a larger slice of the pool. It is a genuinely different trigger mechanic: skill-free like all slots, but visible on the board as it almost happens, which gives near-misses a tension most progressives lack.',
+        ],
+      },
+      {
+        heading: 'The honest caveats',
+        paragraphs: [
+          'The published RTP runs between 92.99% and 93.98% depending on the operator’s build — below the 96% standard and below several rivals on this tracker, with high volatility from the cluster mathematics. Stakes run from 10p to £10 a spin. Treat it as a novelty with a jackpot attached rather than an everyday grinder.',
+        ],
+      },
+    ],
+    verdict:
+      'Worth a spin for the change of pace and the watchable jackpot mechanic, but the below-par RTP means it should not be your main progressive. Play it when its pot on our tracker looks unusually plump.',
+    faqs: [
+      {
+        question: 'How do you win the Pixel Samurai jackpot?',
+        answer:
+          'By landing a cluster of eight or more top samurai symbols on the 5×5 grid. Larger clusters award a larger share of the progressive pool, on top of a fixed multiplier payout.',
+      },
+      {
+        question: 'What is Pixel Samurai’s RTP?',
+        answer:
+          'Between 92.99% and 93.98% depending on the version your casino runs — below the industry standard, which is the price of its progressive pool. Check the in-game rules panel.',
+      },
+    ],
+    lastUpdated: '2026-07-13',
+    authorId: 'editorial-team',
+  },
+  {
+    slug: 'jackpot-blitz',
+    name: 'Jackpot Blitz',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    rtp: 'Varies by base game (verify per title)',
+    volatility: 'medium',
+    maxWin: 'Blitz progressive pool — six-figure top pot',
+    reels: 'Varies by game',
+    paylines: 'Varies by game',
+    rating: 3.8,
+    metaTitle: 'Jackpot Blitz Review 2026 — Playtech’s Fast-Cycle Progressive',
+    metaDescription:
+      'Jackpot Blitz review: Playtech’s progressive layer on Buffalo Blitz Mega Merge, Epic Ape 2 and Sharks! — how it works and who it suits.',
+    headline: 'Big-name Playtech slots with a shared six-figure pool',
+    intro:
+      'Jackpot Blitz bolts a shared progressive onto some of Playtech’s most popular action slots — Buffalo Blitz Mega Merge, Epic Ape 2, Sharks! and King Blitz. The formula is simple: take base games players already love, add a pooled jackpot that regularly builds into six figures, and let the network do the rest.',
+    sections: [
+      {
+        heading: 'How it plays',
+        paragraphs: [
+          'Each participating slot keeps its own identity — Buffalo Blitz’s merge mechanics, Epic Ape’s stacked wilds — with the Blitz jackpot feature layered on top, triggering at random on real-money spins. Because the pool is shared across a small stable of high-traffic games, it cycles faster than giant networks: expect more frequent, more modest drops.',
+        ],
+      },
+      {
+        heading: 'Who it suits',
+        paragraphs: [
+          'Players who pick their slot first and treat the jackpot as a bonus. If you already enjoy the Blitz-family base games, the progressive is effectively free excitement; if you are purely jackpot-hunting, larger pools elsewhere on our tracker will tempt you more.',
+        ],
+      },
+    ],
+    verdict:
+      'A solid everyday progressive: strong base games, a pool that actually cycles, and no need to learn anything new. Not the biggest prize on the board — but one of the more realistic ones.',
+    faqs: [
+      {
+        question: 'Which games carry the Jackpot Blitz progressive?',
+        answer:
+          'Buffalo Blitz Mega Merge, Epic Ape 2, Sharks! and King Blitz at participating casinos, all feeding the same shared pool.',
+      },
+    ],
+    lastUpdated: '2026-07-13',
+    authorId: 'editorial-team',
+  },
+  {
+    slug: 'sporting-legends',
+    name: 'Sporting Legends',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    rtp: 'Varies by base game (verify per title)',
+    volatility: 'medium',
+    maxWin: 'Sporting Legends top pot — six-figure progressive',
+    reels: '5 (typical)',
+    paylines: 'Varies by game',
+    rating: 3.9,
+    metaTitle: 'Sporting Legends Review 2026 — Playtech’s Sports Jackpot Series',
+    metaDescription:
+      'Sporting Legends review: Playtech’s sports-star slot series — Dettori, O’Sullivan, Bruno — sharing a tiered progressive jackpot. Mechanics and verdict.',
+    headline: 'British sporting heroes fronting a tiered prize pool',
+    intro:
+      'Sporting Legends is Playtech’s most distinctly British jackpot family: officially licensed slots fronted by Frankie Dettori, Ronnie O’Sullivan, Frank Bruno, AP McCoy, Roberto Carlos and Bobby George, all feeding one tiered progressive pool. For sports fans it is an easy sell; for jackpot hunters, the tiered structure keeps prizes landing regularly while the top pot builds well into six figures.',
+    sections: [
+      {
+        heading: 'The series',
+        paragraphs: [
+          'Each title celebrates its athlete with themed features — racing bonuses for Dettori and McCoy, snooker breaks for O’Sullivan, boxing rounds for Bruno. Under the branding they are dependable five-reel Playtech slots, and every one contributes to and can pay the shared Sporting Legends pool.',
+          'The pool is tiered, with smaller pots designed to drop frequently — a structure that favours regular players over long-shot dreamers.',
+        ],
+      },
+    ],
+    verdict:
+      'The personality pick: licensed British sports stars, dependable base games and a tiered pool with a realistic drop rhythm. Ideal if you want your jackpot chase to come with familiar faces.',
+    faqs: [
+      {
+        question: 'Which stars feature in Sporting Legends?',
+        answer:
+          'Frankie Dettori, Ronnie O’Sullivan, Frank Bruno, AP McCoy, Roberto Carlos and Bobby George each front their own officially licensed slot in the series.',
+      },
+      {
+        question: 'Do all Sporting Legends games share one jackpot?',
+        answer:
+          'Yes — every title in the series feeds and can trigger the same tiered Sporting Legends progressive pool at participating casinos.',
+      },
+    ],
+    lastUpdated: '2026-07-13',
+    authorId: 'editorial-team',
+  },
+  {
+    slug: 'adventures-beyond-wonderland',
+    name: 'Adventures Beyond Wonderland',
+    provider: 'Playtech Live',
+    jackpotType: 'progressive',
+    rtp: 'Varies by bet type (verify with operator)',
+    volatility: 'high',
+    maxWin: 'Progressive pool + multiplier wheel wins',
+    reels: 'Live game show (wheel)',
+    paylines: 'N/A',
+    rating: 3.9,
+    metaTitle: 'Adventures Beyond Wonderland Review 2026 — Live Jackpot Show',
+    metaDescription:
+      'Adventures Beyond Wonderland review: Playtech’s Alice-themed live game show with multiplier wheels, Wonderspins and a progressive prize pool.',
+    headline: 'The jackpot that lives inside a live game show',
+    intro:
+      'Adventures Beyond Wonderland is the tracker’s only live entry: an Alice in Wonderland-themed game show from Playtech Live, hosted by real presenters around a giant money wheel. Players bet on wheel segments, chase multiplier-stacking bonus rounds like Wonderspins and Magic Dice — and at participating operators, a progressive prize pool sits on top of the show.',
+    sections: [
+      {
+        heading: 'How the show works',
+        paragraphs: [
+          'Each round, the host spins a 54-segment wheel; you win by backing the segment it stops on. Number segments pay fixed odds, while bonus segments launch augmented-reality features where multipliers can compound dramatically. The progressive element gives regular viewers a jackpot stake in every spin.',
+          'It is streamed continuously with betting open to any stake level, which makes it the most accessible entry point on this list — no slot knowledge required.',
+        ],
+      },
+      {
+        heading: 'The honest caveats',
+        paragraphs: [
+          'Returns vary meaningfully by bet type — the flashy bonus segments carry worse odds than the plain numbers, and house edge on live game shows generally exceeds that of good slots. Treat it as entertainment first: the show is genuinely fun, and the jackpot is the garnish rather than the meal.',
+        ],
+      },
+    ],
+    verdict:
+      'The most sociable way to chase a progressive: a polished live show where the jackpot rides along with the entertainment. Bet the number segments for value, enjoy the bonus rounds for the spectacle.',
+    faqs: [
+      {
+        question: 'Is Adventures Beyond Wonderland a slot?',
+        answer:
+          'No — it is a live game show with real hosts and a money wheel, streamed continuously. The progressive jackpot applies at participating operators alongside the show’s standard bets.',
+      },
+    ],
+    lastUpdated: '2026-07-13',
+    authorId: 'editorial-team',
+  },
+  {
+    slug: 'gladiator',
+    name: 'Gladiator Jackpot',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    rtp: '~91.5% (published; verify with provider)',
+    volatility: 'medium',
+    maxWin: 'Gladiator Jackpot — full progressive pool via 9 gold helmets',
+    reels: '5',
+    paylines: '25',
+    rating: 3.8,
+    metaTitle: 'Gladiator Jackpot Review 2026 — The 9-Helmet Progressive',
+    metaDescription:
+      'Gladiator Jackpot review: Playtech’s movie-licensed classic where nine golden helmets win the full progressive pool. Mechanics, RTP and honest verdict.',
+    headline: 'Nine golden helmets between you and the whole pool',
+    intro:
+      'Gladiator Jackpot is Playtech’s enduring adaptation of the Ridley Scott epic, and its jackpot mechanic is the most theatrical on our tracker: trigger the Coliseum bonus and a wall of nine helmets appears — turn all nine gold and the entire progressive pool is yours. Sixteen years on, the film licence and that all-or-nothing helmet wall keep it in casino lobbies everywhere.',
+    sections: [
+      {
+        heading: 'The helmet bonus',
+        paragraphs: [
+          'Three wild Gladiator symbols on the middle reels launch the bonus: nine helmets, each hiding bronze, silver or gold. Every combination pays something, but nine golds — rare, random and unforgettable when it happens — award the full progressive jackpot rather than a tier of it. No wheel, no ladder: the purest jackpot moment in slots.',
+        ],
+      },
+      {
+        heading: 'The price of the drama',
+        paragraphs: [
+          'The published RTP of roughly 91.5% is the lowest on our tracker — a hefty progressive contribution plus an ageing maths model. Play it for the film, the helmet wall and the pool size, not for session value; modern alternatives return meaningfully more per hour.',
+        ],
+      },
+    ],
+    verdict:
+      'A nostalgia pick with the most dramatic jackpot reveal in the business. The RTP is genuinely poor by modern standards, so keep sessions short and stakes modest — but when that ninth helmet turns gold, nothing else in slots compares.',
+    faqs: [
+      {
+        question: 'How do you win the Gladiator Jackpot?',
+        answer:
+          'Trigger the helmet bonus with three wild symbols, then reveal gold behind all nine helmets. Nine golds pay the entire progressive pool; mixed combinations pay smaller amounts.',
+      },
+      {
+        question: 'What is Gladiator Jackpot’s RTP?',
+        answer:
+          'Around 91.5% as published — low by modern standards, reflecting the progressive contribution. Check the rules panel at your casino for the exact build.',
+      },
+    ],
+    lastUpdated: '2026-07-13',
+    authorId: 'editorial-team',
+  },
 ];
 
 export function getSlot(slug: string): SlotGame | undefined {
