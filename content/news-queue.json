@@ -2,7 +2,7 @@
   "README": "Queue of verified jackpot events for the weekly content engine. Add an item with processed:false and the Monday GitHub Action will draft an article from it and open a pull request for review. Only add facts you have verified from provider announcements or reputable public records — the generator is forbidden from inventing specifics. The example below is already marked processed and will never publish.",
   "items": [
     {
-      "processed": false,
+      "processed": true,
       "amount": "11498211",
       "currency": "GBP",
       "game": "Mega Moolah (original)",
