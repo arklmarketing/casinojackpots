@@ -155,17 +155,6 @@ export const jackpotSources: JackpotSource[] = [
     fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
   },
   {
-    slotSlug: 'mega-fortune',
-    displayName: 'Mega Fortune',
-    provider: 'NetEnt',
-    jackpotType: 'progressive',
-    reviewSlug: 'mega-fortune',
-    sourceUrl: null,
-    currency: '€',
-    fallbackValue: 2900000,
-    fallbackNote: 'Sample value — Mega Fortune’s pool typically drops in the low millions.',
-  },
-  {
     slotSlug: 'divine-fortune',
     displayName: 'Divine Fortune',
     provider: 'NetEnt',
