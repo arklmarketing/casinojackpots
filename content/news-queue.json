@@ -1,0 +1,16 @@
+{
+  "README": "Queue of verified jackpot events for the weekly content engine. Add an item with processed:false and the Monday GitHub Action will draft an article from it and open a pull request for review. Only add facts you have verified from provider announcements or reputable public records — the generator is forbidden from inventing specifics. The example below is already marked processed and will never publish.",
+  "items": [
+    {
+      "processed": true,
+      "amount": "18915872",
+      "currency": "EUR",
+      "game": "Absolootly Mad: Mega Moolah",
+      "casino": "Napoleon Sports & Casino (Belgium)",
+      "date": "2021-04-27",
+      "location": "Belgium",
+      "sourceNotes": "EXAMPLE ITEM (already covered on the site). Guinness World Record online slot payout, announced by Microgaming, April 2021.",
+      "primaryKeyword": "biggest online slot jackpot"
+    }
+  ]
+}

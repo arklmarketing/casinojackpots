@@ -43,7 +43,7 @@ export default function OfferTable({ rows }: { rows: OfferRow[] }) {
             </div>
             <div className="sm:w-44 sm:shrink-0 sm:text-right">
               <a
-                href={offer.affiliateUrl}
+                href={`/go/${offer.id}`}
                 rel="nofollow sponsored noopener"
                 target="_blank"
                 className="inline-block w-full rounded-lg bg-mint-500 px-5 py-3 text-center font-bold text-ink-950 transition-colors hover:bg-mint-400 sm:w-auto"

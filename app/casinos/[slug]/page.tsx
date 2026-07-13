@@ -84,7 +84,7 @@ export default function CasinoReviewPage({ params }: Props) {
             <div key={offer.id} className="mt-3">
               <p className="text-xl font-bold text-gold-300">{offer.bonusHeadline}</p>
               <a
-                href={offer.affiliateUrl}
+                href={`/go/${offer.id}`}
                 rel="nofollow sponsored noopener"
                 target="_blank"
                 className="mt-3 inline-block rounded-lg bg-mint-500 px-6 py-3 font-bold text-ink-950 hover:bg-mint-400"

@@ -1,12 +1,19 @@
 import type { JackpotNewsArticle } from './types';
+import generatedRaw from './news-generated.json';
 
 /**
  * News articles below cover well-documented historical jackpot events and
  * evergreen news-style roundups. New articles should be generated via the
  * JackpotNewsArticle prompt template (lib/prompts/templates.ts) from verified
  * source data — never invent winners, amounts or dates.
+ *
+ * Articles produced by the weekly content engine (scripts/generate-news.mjs
+ * + .github/workflows/weekly-news.yml) land in news-generated.json via
+ * reviewed pull requests and are merged in automatically below.
  */
-export const news: JackpotNewsArticle[] = [
+const generated = generatedRaw as unknown as JackpotNewsArticle[];
+
+const authored: JackpotNewsArticle[] = [
   {
     slug: 'biggest-online-casino-jackpots-ever',
     headline: 'The Biggest Online Casino Jackpots Ever Won',
@@ -152,6 +159,8 @@ export const news: JackpotNewsArticle[] = [
     ],
   },
 ];
+
+export const news: JackpotNewsArticle[] = [...authored, ...generated];
 
 export function getNewsArticle(slug: string): JackpotNewsArticle | undefined {
   return news.find((n) => n.slug === slug);
