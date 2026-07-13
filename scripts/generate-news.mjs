@@ -87,9 +87,12 @@ async function main() {
       messages: [{ role: 'user', content: prompt(item) }],
     }),
   });
-  if (!res.ok) throw new Error(`Anthropic API error ${res.status}: ${await res.text()}`);
+  const rawBody = await res.text();
+  // Always save the raw response — uploaded as a debug artifact on failure.
+  writeFileSync(resolve(root, 'debug-response.json'), rawBody);
+  if (!res.ok) throw new Error(`Anthropic API error ${res.status}: ${rawBody.slice(0, 500)}`);
 
-  const data = await res.json();
+  const data = JSON.parse(rawBody);
   // Diagnostics — makes any failure self-explanatory in the Actions log.
   console.log(
     `API response: stop_reason=${data.stop_reason}, blocks=[${(data.content ?? [])

@@ -8,3 +8,4 @@ out/
 *.log
 next-env.d.ts
 .DS_Store
+debug-response.json

@@ -34,6 +34,17 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/generate-news.mjs
 
+      - name: Upload debug artifact on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-response
+          path: debug-response.json
+          if-no-files-found: ignore
+
+      - name: Remove debug file before PR
+        run: rm -f debug-response.json
+
       - name: Open pull request for review
         uses: peter-evans/create-pull-request@v6
         with:
