@@ -22,6 +22,13 @@ export interface JackpotValue {
   isLive: boolean;
   note?: string;
   updatedAt: string; // ISO timestamp
+  /** Estimated pool growth per hour — drives the on-page ticker animation. */
+  ratePerHour: number;
+}
+
+/** Estimated hourly pool growth for the ticker (proportional to pool size). */
+function estimateRatePerHour(amount: number): number {
+  return Math.max(4, amount * 0.00006);
 }
 
 const FIRECRAWL_URL = 'https://api.firecrawl.dev/v2/scrape';
@@ -94,6 +101,7 @@ export const getJackpotValues = unstable_cache(
         isLive: false,
         note: source.fallbackNote,
         updatedAt: now,
+        ratePerHour: 0,
       };
 
       if (!source.sourceUrl || !hasKey) return fallback;
@@ -106,7 +114,14 @@ export const getJackpotValues = unstable_cache(
         return fallback;
       }
 
-      return { slotSlug: source.slotSlug, currency: source.currency, amount, isLive: true, updatedAt: now };
+      return {
+        slotSlug: source.slotSlug,
+        currency: source.currency,
+        amount,
+        isLive: true,
+        updatedAt: now,
+        ratePerHour: source.jackpotType === 'progressive' ? estimateRatePerHour(amount) : 0,
+      };
     });
   },
   ['jackpot-values'],

@@ -8,6 +8,7 @@ import { getJackpotValues, formatJackpot } from '@/lib/jackpots';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ArticleCard from '@/components/ArticleCard';
 import RgBanner from '@/components/RgBanner';
+import TickerValue from '@/components/TickerValue';
 
 export const revalidate = 3600; // refresh page hourly (jackpot scrape itself is cached daily)
 
@@ -87,7 +88,20 @@ export default async function JackpotsHubPage() {
                     <td className="px-4 py-3 text-slate-400">{source.provider}</td>
                     <td className="px-4 py-3 capitalize text-slate-400">{source.jackpotType}</td>
                     <td className="px-4 py-3 font-bold text-gold-300">
-                      {value ? formatJackpot(value) : '—'}
+                      {value ? (
+                        value.isLive ? (
+                          <TickerValue
+                            amount={value.amount}
+                            currency={value.currency}
+                            updatedAt={value.updatedAt}
+                            ratePerHour={value.ratePerHour}
+                          />
+                        ) : (
+                          formatJackpot(value)
+                        )
+                      ) : (
+                        '—'
+                      )}
                       {value && !value.isLive && (
                         <span className="ml-1 text-xs font-normal text-slate-500">(sample)</span>
                       )}
@@ -111,7 +125,7 @@ export default async function JackpotsHubPage() {
         </div>
         <p className="mt-3 text-xs text-slate-500">
           {anyLive
-            ? 'Live values refresh several times a day and may lag the in-game ticker. '
+            ? 'Live values are verified several times a day; the counting between refreshes is an estimate based on typical pool growth and resets at each verification. '
             : 'Jackpot values shown are samples until the live feed is connected. '}
           Network jackpots are shared across many games — see each review for RTP and mechanics, and
           always check the game rules panel at your casino.
