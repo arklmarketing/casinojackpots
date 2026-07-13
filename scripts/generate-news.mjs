@@ -83,15 +83,25 @@ async function main() {
     },
     body: JSON.stringify({
       model: process.env.ANTHROPIC_MODEL ?? 'claude-sonnet-5',
-      max_tokens: 4000,
+      max_tokens: 8000,
       messages: [{ role: 'user', content: prompt(item) }],
     }),
   });
   if (!res.ok) throw new Error(`Anthropic API error ${res.status}: ${await res.text()}`);
 
   const data = await res.json();
-  const text = data.content?.[0]?.text ?? '';
-  const draft = JSON.parse(text.replace(/^```json?\s*|\s*```$/g, ''));
+  // The response may contain multiple content blocks (e.g. thinking blocks
+  // on newer models) — take the text block(s) only.
+  const text = (data.content ?? [])
+    .filter((b) => b.type === 'text' && typeof b.text === 'string')
+    .map((b) => b.text)
+    .join('\n');
+  if (data.stop_reason === 'max_tokens') throw new Error('Response truncated (max_tokens) — increase the limit');
+  // Extract the JSON object even if the model wrapped it in prose or fences.
+  const start = text.indexOf('{');
+  const end = text.lastIndexOf('}');
+  if (start === -1 || end === -1) throw new Error(`No JSON object found in model response: ${text.slice(0, 300)}`);
+  const draft = JSON.parse(text.slice(start, end + 1));
 
   const flat = JSON.stringify(draft);
   const result = checks(flat);
