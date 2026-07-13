@@ -2,6 +2,17 @@
   "README": "Queue of verified jackpot events for the weekly content engine. Add an item with processed:false and the Monday GitHub Action will draft an article from it and open a pull request for review. Only add facts you have verified from provider announcements or reputable public records — the generator is forbidden from inventing specifics. The example below is already marked processed and will never publish.",
   "items": [
     {
+      "processed": false,
+      "amount": "11498211",
+      "currency": "GBP",
+      "game": "Mega Moolah (original)",
+      "casino": "Betfred",
+      "date": "2025-06-12",
+      "location": "United Kingdom",
+      "sourceNotes": "Announced by Games Global (provider press release, June 2025). First eight-figure Mega Moolah payout in recent months, won on the original Mega Moolah title. Games Global CPO Andy Booth and Betfred Head of Gaming Andrew Horne both gave statements; Games Global has awarded over EUR 130 million in jackpot prizes across its network. Exact amount per Betfred: GBP 11,498,211.89.",
+      "primaryKeyword": "Mega Moolah jackpot win"
+    },
+    {
       "processed": true,
       "amount": "18915872",
       "currency": "EUR",
