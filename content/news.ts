@@ -15,6 +15,49 @@ const generated = generatedRaw as unknown as JackpotNewsArticle[];
 
 const authored: JackpotNewsArticle[] = [
   {
+    slug: 'bet365-jackpot365-sports-launch-world-cup',
+    headline: 'Bet365 Puts Progressive Jackpots on Sports Bets in Industry First',
+    subhead:
+      'Jackpot365 arrives on the sports betslip ahead of the World Cup — after paying out nearly £50 million on casino since December',
+    metaTitle: 'Bet365 Jackpot365 Comes to Sports Bets — £50m Already Paid',
+    metaDescription:
+      'Bet365 has launched Jackpot365 on sports betting in an industry first: four progressive jackpots on any sports bet, after nearly £50m in casino payouts since December 2025.',
+    excerpt:
+      'Bet365 has become the first major operator to attach progressive jackpots to sports bets, rolling its Jackpot365 feature onto the betslip ahead of the World Cup — with almost £50 million already paid out on the casino version.',
+    publishedAt: '2026-07-13',
+    updatedAt: '2026-07-13',
+    authorId: 'news-desk',
+    relatedSlotSlugs: [],
+    relatedCasinoSlugs: [],
+    sections: [
+      {
+        paragraphs: [
+          'Bet365 has launched Jackpot365 on its sports product, becoming the first major operator to offer a progressive jackpot feature directly on the sports betslip. The rollout, announced on 8 June 2026, lands deliberately ahead of the World Cup — the biggest betting event in the calendar.',
+          'The mechanics will be familiar to anyone who plays progressive slots: four separate jackpot pools, funded by optional entries, paid out at random as cash prizes. What is new is where it lives. Rather than sitting inside a casino game, Jackpot365 attaches to any qualifying sports bet — build a bet, opt in for an additional entry fee, and the wager doubles as a jackpot entry without affecting the underlying bet.',
+        ],
+      },
+      {
+        heading: 'Nearly £50 million paid out since December',
+        paragraphs: [
+          'Jackpot365 is not an untested concept. Bet365 launched the feature on its casino product in December 2025, where — by the company’s own figures — it has since paid out almost £50,000,000 across more than 112,000 individual jackpot wins. That works out at hundreds of jackpot drops per day, a deliberately high-frequency model closer to daily-drop slots than to the rare, enormous payouts of networks like Mega Moolah.',
+          'The sports version follows the same design: four progressive tiers with frequent smaller wins rather than a single headline pool. Prizes are paid as cash, and players can opt in or out on any bet.',
+        ],
+      },
+      {
+        heading: 'Why it matters for jackpot players',
+        paragraphs: [
+          'The launch is a signal of where jackpot mechanics are heading: out of the slot lobby and into every corner of the betting product. Built in-house rather than licensed from a games studio, Jackpot365 gives Bet365 a jackpot network it fully controls — and an industry first that rivals will be watching closely during the World Cup.',
+          'Jackpot365 on sports is available in the UK, the Netherlands, Sweden, Ontario and Brazil, plus selected other Bet365 territories. The usual caveats apply, and they matter: opting in increases your stake, jackpot entries are a separate wager with its own odds, and the random nature of the draws means no bet is ever “due” a jackpot. Full terms apply.',
+        ],
+      },
+      {
+        paragraphs: [
+          'Gambling should be entertainment, never a way to make money. If it stops being fun, free and confidential support is available from GamCare and GambleAware. 18+.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'biggest-online-casino-jackpots-ever',
     headline: 'The Biggest Online Casino Jackpots Ever Won',
     subhead: 'From a soldier’s 25p spin to an €18.9m record — the wins that made jackpot history',
