@@ -7,10 +7,15 @@ import { offers } from '@/content/offers';
 import { slots } from '@/content/slots';
 import { getLatestNews } from '@/content/news';
 import { guides } from '@/content/guides';
+import { jackpotSources } from '@/content/jackpot-sources';
+import { getJackpotValues, formatJackpot } from '@/lib/jackpots';
 import OfferTable from '@/components/OfferTable';
 import ArticleCard from '@/components/ArticleCard';
 import RgBanner from '@/components/RgBanner';
 import Rating from '@/components/Rating';
+import TickerValue from '@/components/TickerValue';
+
+export const revalidate = 3600; // refresh jackpot values hourly
 
 export const metadata: Metadata = buildMetadata({
   title: `Casino Jackpots — Jackpot News, Slot Reviews & Best UK Casino Offers`,
@@ -18,7 +23,7 @@ export const metadata: Metadata = buildMetadata({
   path: '/',
 });
 
-export default function HomePage() {
+export default async function HomePage() {
   const topOffers = offers.slice(0, 3).map((offer) => ({
     offer,
     casino: casinos.find((c) => c.slug === offer.casinoSlug)!,
@@ -26,6 +31,13 @@ export default function HomePage() {
   const latestNews = getLatestNews(3);
   const featuredSlots = slots.slice(0, 3);
   const featuredGuides = guides.slice(0, 3);
+  const jackpotValues = await getJackpotValues();
+  const jackpotBoard = jackpotSources
+    .map((source) => ({
+      source,
+      value: jackpotValues.find((v) => v.slotSlug === source.slotSlug),
+    }))
+    .sort((a, b) => (b.value?.amount ?? 0) - (a.value?.amount ?? 0));
 
   return (
     <>
@@ -56,6 +68,52 @@ export default function HomePage() {
             Latest Jackpot News
           </Link>
         </div>
+      </section>
+
+      {/* Live jackpot board */}
+      <section className="mt-12">
+        <div className="mb-5 flex items-end justify-between">
+          <h2 className="text-2xl font-bold text-white">Live jackpots right now</h2>
+          <Link href="/jackpots" className="text-sm font-semibold text-gold-400 hover:text-gold-300">
+            Full tracker →
+          </Link>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {jackpotBoard.map(({ source, value }) => (
+            <Link
+              key={source.slotSlug}
+              href={source.reviewSlug ? `/slots/${source.reviewSlug}` : '/jackpots'}
+              className="group rounded-xl border border-ink-600 bg-ink-800 p-5 transition-colors hover:border-gold-500"
+            >
+              <p className="flex items-center justify-between text-sm font-semibold text-slate-300">
+                {source.displayName}
+                {value && !value.isLive && (
+                  <span className="text-xs font-normal text-slate-500">sample</span>
+                )}
+              </p>
+              <p className="mt-1 text-2xl font-extrabold text-gold-400 sm:text-3xl">
+                {value ? (
+                  value.isLive ? (
+                    <TickerValue
+                      amount={value.amount}
+                      currency={value.currency}
+                      updatedAt={value.updatedAt}
+                      ratePerHour={value.ratePerHour}
+                    />
+                  ) : (
+                    formatJackpot(value)
+                  )
+                ) : (
+                  '—'
+                )}
+              </p>
+            </Link>
+          ))}
+        </div>
+        <p className="mt-3 text-xs text-slate-500">
+          Live values are verified several times a day; counting between refreshes is an estimate
+          based on typical pool growth. 18+, T&amp;Cs apply at operators.
+        </p>
       </section>
 
       {/* Top offers */}
