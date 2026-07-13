@@ -39,10 +39,15 @@ async function scrapeMarkdown(url: string): Promise<string | null> {
       body: JSON.stringify({ url, formats: ['markdown'], onlyMainContent: true }),
       signal: AbortSignal.timeout(25000),
     });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.error(`jackpot-tracker: Firecrawl ${res.status} for ${url}: ${(await res.text()).slice(0, 200)}`);
+      return null;
+    }
     const data = (await res.json()) as { data?: { markdown?: string } };
+    if (!data.data?.markdown) console.error(`jackpot-tracker: no markdown in Firecrawl response for ${url}`);
     return data.data?.markdown ?? null;
-  } catch {
+  } catch (err) {
+    console.error(`jackpot-tracker: fetch failed for ${url}: ${err instanceof Error ? err.message : err}`);
     return null;
   }
 }
@@ -99,7 +104,9 @@ export const getJackpotValues = unstable_cache(
     return Promise.all(jackpotSources.map(fetchOne));
   },
   ['jackpot-values'],
-  { revalidate: 86400 },
+  // 6-hourly: values stay fresh and a failed scrape self-heals the same day.
+  // ~360 Firecrawl credits/month for 3 source pages — within the free tier.
+  { revalidate: 21600 },
 );
 
 export async function getJackpotValue(slotSlug: string): Promise<JackpotValue | undefined> {
