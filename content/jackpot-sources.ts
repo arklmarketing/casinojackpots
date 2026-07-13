@@ -1,18 +1,25 @@
 /**
  * Jackpot tracker source configuration.
  *
- * Each entry maps a slot to a source web page that displays its current
- * progressive jackpot value. The daily fetcher (lib/jackpots.ts) scrapes the
- * page via Firecrawl and extracts the value.
+ * Each entry maps a tracked jackpot (single slot or network) to a source web
+ * page displaying its current value. The fetcher (lib/jackpots.ts) scrapes
+ * each unique source URL once per refresh cycle and extracts every value
+ * from it — ten jackpots on one page cost one Firecrawl credit, not ten.
  *
  * sourceUrl: null → tracker shows the fallback value labelled as a sample.
- * Set real source URLs (ideally provider pages or your affiliate partners'
- * pages, with permission) to go live. FIRECRAWL_API_KEY must be set in the
- * hosting environment.
+ * FIRECRAWL_API_KEY must be set in the hosting environment.
  */
 
+const BETFRED_TRACKER = 'https://insights.betfred.com/games/jackpot-tracker/';
+
 export interface JackpotSource {
+  /** Unique ID. Matches a slot review slug when we have one. */
   slotSlug: string;
+  displayName: string;
+  provider: string;
+  jackpotType: 'progressive' | 'fixed' | 'daily';
+  /** Slot review to link to, when one exists. */
+  reviewSlug?: string;
   /** Page displaying the live jackpot value. null = not yet configured. */
   sourceUrl: string | null;
   /**
@@ -29,14 +36,122 @@ export interface JackpotSource {
 export const jackpotSources: JackpotSource[] = [
   {
     slotSlug: 'mega-moolah',
-    sourceUrl: 'https://insights.betfred.com/games/jackpot-tracker/',
+    displayName: 'Mega Moolah',
+    provider: 'Games Global (Microgaming)',
+    jackpotType: 'progressive',
+    reviewSlug: 'mega-moolah',
+    sourceUrl: BETFRED_TRACKER,
     pattern: 'Mega Moolah[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
     currency: '£',
     fallbackValue: 12270205,
-    fallbackNote: 'Last recorded value — refreshed daily from the Betfred jackpot tracker.',
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'jackpot-king',
+    displayName: 'Jackpot King',
+    provider: 'Blueprint Gaming',
+    jackpotType: 'progressive',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Jackpot King[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 1729162,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'mega-jackpots',
+    displayName: 'Mega Jackpots',
+    provider: 'IGT',
+    jackpotType: 'progressive',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Mega Jackpots[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 667775,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'empire-treasures',
+    displayName: 'Empire Treasures',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Empire Treasures[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 559180,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'pixel-samurai',
+    displayName: 'Pixel Samurai',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Pixel Samurai[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 543081,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'jackpot-blitz',
+    displayName: 'Jackpot Blitz',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Blitz[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 294386,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'age-of-the-gods',
+    displayName: 'Age of the Gods',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    reviewSlug: 'age-of-the-gods',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Age of the Gods[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 188610,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'sporting-legends',
+    displayName: 'Sporting Legends',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Sporting Legends[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 185273,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'adventures-beyond-wonderland',
+    displayName: 'Adventures Beyond Wonderland',
+    provider: 'Playtech Live',
+    jackpotType: 'progressive',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Adventures Beyond Wonderland[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 156095,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
+  },
+  {
+    slotSlug: 'gladiator',
+    displayName: 'Gladiator',
+    provider: 'Playtech',
+    jackpotType: 'progressive',
+    sourceUrl: BETFRED_TRACKER,
+    pattern: 'Gladiator[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
+    currency: '£',
+    fallbackValue: 153234,
+    fallbackNote: 'Last recorded value — refreshed from the Betfred jackpot tracker.',
   },
   {
     slotSlug: 'mega-fortune',
+    displayName: 'Mega Fortune',
+    provider: 'NetEnt',
+    jackpotType: 'progressive',
+    reviewSlug: 'mega-fortune',
     sourceUrl: null,
     currency: '€',
     fallbackValue: 2900000,
@@ -44,21 +159,21 @@ export const jackpotSources: JackpotSource[] = [
   },
   {
     slotSlug: 'divine-fortune',
+    displayName: 'Divine Fortune',
+    provider: 'NetEnt',
+    jackpotType: 'progressive',
+    reviewSlug: 'divine-fortune',
     sourceUrl: null,
     currency: '£',
     fallbackValue: 62000,
     fallbackNote: 'Sample value — local Grand pot; varies by operator, typically five figures.',
   },
   {
-    slotSlug: 'age-of-the-gods',
-    sourceUrl: 'https://insights.betfred.com/games/jackpot-tracker/',
-    pattern: 'Age of the Gods[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
-    currency: '£',
-    fallbackValue: 188610,
-    fallbackNote: 'Last recorded value — refreshed daily from the Betfred jackpot tracker.',
-  },
-  {
     slotSlug: 'wolf-gold',
+    displayName: 'Wolf Gold',
+    provider: 'Pragmatic Play',
+    jackpotType: 'fixed',
+    reviewSlug: 'wolf-gold',
     sourceUrl: null,
     currency: '£',
     fallbackValue: 1000,

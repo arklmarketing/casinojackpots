@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { buildMetadata } from '@/lib/seo';
 import { getLatestNews } from '@/content/news';
 import { slots } from '@/content/slots';
+import { jackpotSources } from '@/content/jackpot-sources';
 import { getJackpotValues, formatJackpot } from '@/lib/jackpots';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ArticleCard from '@/components/ArticleCard';
@@ -57,49 +58,63 @@ export default async function JackpotsHubPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="mb-5 text-2xl font-bold text-white">The progressive jackpot slots we track</h2>
+        <h2 className="mb-5 text-2xl font-bold text-white">
+          Live progressive jackpot tracker — {jackpotSources.length} jackpots
+        </h2>
         <div className="overflow-x-auto rounded-xl border border-ink-600">
           <table className="w-full min-w-[600px] text-left text-sm">
             <thead className="bg-ink-800 text-xs uppercase tracking-wide text-slate-400">
               <tr>
-                <th className="px-4 py-3">Slot</th>
+                <th className="px-4 py-3">#</th>
+                <th className="px-4 py-3">Jackpot</th>
                 <th className="px-4 py-3">Provider</th>
-                <th className="px-4 py-3">Jackpot type</th>
+                <th className="px-4 py-3">Type</th>
                 <th className="px-4 py-3">Current jackpot</th>
-                <th className="px-4 py-3">RTP</th>
                 <th className="px-4 py-3">Review</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-ink-700 bg-ink-900">
-              {slots.map((slot) => {
-                const value = jackpotValues.find((v) => v.slotSlug === slot.slug);
-                return (
-                  <tr key={slot.slug} className="hover:bg-ink-800">
-                    <td className="px-4 py-3 font-semibold text-white">{slot.name}</td>
-                    <td className="px-4 py-3 text-slate-400">{slot.provider}</td>
-                    <td className="px-4 py-3 capitalize text-slate-400">{slot.jackpotType}</td>
+              {jackpotSources
+                .map((source) => ({
+                  source,
+                  value: jackpotValues.find((v) => v.slotSlug === source.slotSlug),
+                }))
+                .sort((a, b) => (b.value?.amount ?? 0) - (a.value?.amount ?? 0))
+                .map(({ source, value }, i) => (
+                  <tr key={source.slotSlug} className="hover:bg-ink-800">
+                    <td className="px-4 py-3 font-bold text-gold-400">{i + 1}</td>
+                    <td className="px-4 py-3 font-semibold text-white">{source.displayName}</td>
+                    <td className="px-4 py-3 text-slate-400">{source.provider}</td>
+                    <td className="px-4 py-3 capitalize text-slate-400">{source.jackpotType}</td>
                     <td className="px-4 py-3 font-bold text-gold-300">
                       {value ? formatJackpot(value) : '—'}
-                      {value && !value.isLive && <span className="ml-1 text-xs font-normal text-slate-500">(sample)</span>}
+                      {value && !value.isLive && (
+                        <span className="ml-1 text-xs font-normal text-slate-500">(sample)</span>
+                      )}
                     </td>
-                    <td className="px-4 py-3 text-slate-400">{slot.rtp.split(' ')[0]}</td>
                     <td className="px-4 py-3">
-                      <Link href={`/slots/${slot.slug}`} className="font-semibold text-gold-400 hover:text-gold-300">
-                        Read →
-                      </Link>
+                      {source.reviewSlug ? (
+                        <Link
+                          href={`/slots/${source.reviewSlug}`}
+                          className="font-semibold text-gold-400 hover:text-gold-300"
+                        >
+                          Read →
+                        </Link>
+                      ) : (
+                        <span className="text-slate-600">—</span>
+                      )}
                     </td>
                   </tr>
-                );
-              })}
+                ))}
             </tbody>
           </table>
         </div>
         <p className="mt-3 text-xs text-slate-500">
           {anyLive
-            ? 'Jackpot values refresh daily and may lag the in-game ticker. '
+            ? 'Live values refresh several times a day and may lag the in-game ticker. '
             : 'Jackpot values shown are samples until the live feed is connected. '}
-          RTP figures are provider-published values and can vary by operator — always check the game
-          rules panel at your casino.
+          Network jackpots are shared across many games — see each review for RTP and mechanics, and
+          always check the game rules panel at your casino.
         </p>
       </section>
 

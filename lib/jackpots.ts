@@ -71,41 +71,47 @@ function extractAmount(text: string, source: JackpotSource): number | null {
   return values.length > 0 ? Math.max(...values) : null;
 }
 
-async function fetchOne(source: JackpotSource): Promise<JackpotValue> {
-  const fallback: JackpotValue = {
-    slotSlug: source.slotSlug,
-    currency: source.currency,
-    amount: source.fallbackValue,
-    isLive: false,
-    note: source.fallbackNote,
-    updatedAt: new Date().toISOString(),
-  };
-
-  if (!source.sourceUrl || !process.env.FIRECRAWL_API_KEY) return fallback;
-
-  const markdown = await scrapeMarkdown(source.sourceUrl);
-  if (!markdown) return fallback;
-
-  const amount = extractAmount(markdown, source);
-  if (amount === null) return fallback;
-
-  return {
-    slotSlug: source.slotSlug,
-    currency: source.currency,
-    amount,
-    isLive: true,
-    updatedAt: new Date().toISOString(),
-  };
-}
-
-/** All jackpot values, cached for 24 hours. */
+/** All jackpot values. Each unique source URL is scraped once per cycle. */
 export const getJackpotValues = unstable_cache(
   async (): Promise<JackpotValue[]> => {
-    return Promise.all(jackpotSources.map(fetchOne));
+    const now = new Date().toISOString();
+    const hasKey = Boolean(process.env.FIRECRAWL_API_KEY);
+
+    // Scrape each unique source page once — many jackpots share one page.
+    const uniqueUrls = Array.from(
+      new Set(jackpotSources.map((s) => s.sourceUrl).filter((u): u is string => Boolean(u))),
+    );
+    const pages = new Map<string, string | null>();
+    if (hasKey) {
+      await Promise.all(uniqueUrls.map(async (url) => pages.set(url, await scrapeMarkdown(url))));
+    }
+
+    return jackpotSources.map((source) => {
+      const fallback: JackpotValue = {
+        slotSlug: source.slotSlug,
+        currency: source.currency,
+        amount: source.fallbackValue,
+        isLive: false,
+        note: source.fallbackNote,
+        updatedAt: now,
+      };
+
+      if (!source.sourceUrl || !hasKey) return fallback;
+      const markdown = pages.get(source.sourceUrl);
+      if (!markdown) return fallback;
+
+      const amount = extractAmount(markdown, source);
+      if (amount === null) {
+        console.error(`jackpot-tracker: no value matched for ${source.slotSlug}`);
+        return fallback;
+      }
+
+      return { slotSlug: source.slotSlug, currency: source.currency, amount, isLive: true, updatedAt: now };
+    });
   },
   ['jackpot-values'],
   // 6-hourly: values stay fresh and a failed scrape self-heals the same day.
-  // ~360 Firecrawl credits/month for 3 source pages — within the free tier.
+  // One shared source page = ~120 Firecrawl credits/month.
   { revalidate: 21600 },
 );
 
