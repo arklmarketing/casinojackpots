@@ -29,10 +29,11 @@ export interface JackpotSource {
 export const jackpotSources: JackpotSource[] = [
   {
     slotSlug: 'mega-moolah',
-    sourceUrl: null,
+    sourceUrl: 'https://insights.betfred.com/games/jackpot-tracker/',
+    pattern: 'Mega Moolah[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
     currency: '£',
-    fallbackValue: 4750000,
-    fallbackNote: 'Sample value — Mega jackpot seeds at £1,000,000 and averages £4–6m at drop.',
+    fallbackValue: 12270205,
+    fallbackNote: 'Last recorded value — refreshed daily from the Betfred jackpot tracker.',
   },
   {
     slotSlug: 'mega-fortune',
@@ -50,10 +51,11 @@ export const jackpotSources: JackpotSource[] = [
   },
   {
     slotSlug: 'age-of-the-gods',
-    sourceUrl: null,
+    sourceUrl: 'https://insights.betfred.com/games/jackpot-tracker/',
+    pattern: 'Age of the Gods[\\s\\S]{0,160}?£([\\d,]+\\.\\d{2})',
     currency: '£',
-    fallbackValue: 480000,
-    fallbackNote: 'Sample value — Ultimate Power pool across the Age of the Gods network.',
+    fallbackValue: 188610,
+    fallbackNote: 'Last recorded value — refreshed daily from the Betfred jackpot tracker.',
   },
   {
     slotSlug: 'wolf-gold',
