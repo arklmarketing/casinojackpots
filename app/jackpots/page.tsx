@@ -8,7 +8,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import ArticleCard from '@/components/ArticleCard';
 import RgBanner from '@/components/RgBanner';
 
-export const revalidate = 86400; // refresh jackpot values daily
+export const revalidate = 3600; // refresh page hourly (jackpot scrape itself is cached daily)
 
 export const metadata: Metadata = buildMetadata({
   title: 'Casino Jackpots — Progressive Jackpot Tracker, News & Biggest Wins',

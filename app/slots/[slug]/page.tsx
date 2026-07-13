@@ -14,7 +14,7 @@ import FaqSection from '@/components/FaqSection';
 import RgBanner from '@/components/RgBanner';
 import JsonLd from '@/components/JsonLd';
 
-export const revalidate = 86400; // refresh jackpot values daily
+export const revalidate = 3600; // refresh page hourly (jackpot scrape itself is cached daily)
 
 interface Props {
   params: { slug: string };
