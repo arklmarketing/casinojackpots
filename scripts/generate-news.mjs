@@ -90,18 +90,35 @@ async function main() {
   if (!res.ok) throw new Error(`Anthropic API error ${res.status}: ${await res.text()}`);
 
   const data = await res.json();
+  // Diagnostics — makes any failure self-explanatory in the Actions log.
+  console.log(
+    `API response: stop_reason=${data.stop_reason}, blocks=[${(data.content ?? [])
+      .map((b) => b.type)
+      .join(', ')}], usage=${JSON.stringify(data.usage ?? {})}`,
+  );
+  if (data.stop_reason === 'max_tokens') throw new Error('Response truncated (max_tokens) — increase the limit');
+
   // The response may contain multiple content blocks (e.g. thinking blocks
   // on newer models) — take the text block(s) only.
   const text = (data.content ?? [])
     .filter((b) => b.type === 'text' && typeof b.text === 'string')
     .map((b) => b.text)
     .join('\n');
-  if (data.stop_reason === 'max_tokens') throw new Error('Response truncated (max_tokens) — increase the limit');
+
   // Extract the JSON object even if the model wrapped it in prose or fences.
   const start = text.indexOf('{');
   const end = text.lastIndexOf('}');
-  if (start === -1 || end === -1) throw new Error(`No JSON object found in model response: ${text.slice(0, 300)}`);
-  const draft = JSON.parse(text.slice(start, end + 1));
+  if (start === -1 || end === -1) {
+    throw new Error(`No JSON object found in model response. First 500 chars:\n${text.slice(0, 500)}`);
+  }
+  let draft;
+  try {
+    draft = JSON.parse(text.slice(start, end + 1));
+  } catch (err) {
+    throw new Error(
+      `Failed to parse draft JSON (${err.message}). Extracted slice starts:\n${text.slice(start, start + 500)}\n...ends:\n${text.slice(Math.max(start, end - 300), end + 1)}`,
+    );
+  }
 
   const flat = JSON.stringify(draft);
   const result = checks(flat);
