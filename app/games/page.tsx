@@ -38,11 +38,11 @@ const GAME_CATEGORIES = [
   },
   {
     name: 'Live Dealer & Game Shows',
-    href: '/casinos/grand-marina',
+    href: '/casinos/netbet',
     rtp: '95–99% by game',
     description:
-      'Streamed tables with real dealers, plus Evolution’s game-show formats — several carrying progressive jackpots. Our live casino pick is Grand Marina, whose blackjack and baccarat tables offer pooled jackpot side bets.',
-    cta: 'Best live casino →',
+      'Streamed tables with real dealers, plus Evolution’s game-show formats — several carrying progressive jackpots. NetBet’s live floor runs on Evolution, from Immersive Roulette to Monopoly Big Baller.',
+    cta: 'Read our NetBet review →',
   },
   {
     name: 'Baccarat',

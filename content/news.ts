@@ -70,7 +70,7 @@ const authored: JackpotNewsArticle[] = [
     updatedAt: '2026-07-01',
     authorId: 'news-desk',
     relatedSlotSlugs: ['mega-moolah', 'mega-fortune'],
-    relatedCasinoSlugs: ['aurora-casino', 'kings-vault'],
+    relatedCasinoSlugs: ['netbet'],
     jackpotFacts: {
       amount: '18,915,872',
       currency: 'EUR',
@@ -124,7 +124,7 @@ const authored: JackpotNewsArticle[] = [
     updatedAt: '2026-07-01',
     authorId: 'news-desk',
     relatedSlotSlugs: ['mega-moolah'],
-    relatedCasinoSlugs: ['aurora-casino'],
+    relatedCasinoSlugs: [],
     jackpotFacts: {
       amount: '13,213,838',
       currency: 'GBP',
@@ -173,7 +173,7 @@ const authored: JackpotNewsArticle[] = [
     updatedAt: '2026-07-01',
     authorId: 'news-desk',
     relatedSlotSlugs: ['mega-moolah', 'divine-fortune', 'age-of-the-gods'],
-    relatedCasinoSlugs: ['neon-spin'],
+    relatedCasinoSlugs: [],
     sections: [
       {
         paragraphs: [

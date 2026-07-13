@@ -21,8 +21,9 @@ export default function CasinosIndexPage() {
         Best Jackpot Casinos — Reviewed &amp; Ranked
       </h1>
       <p className="mt-4 max-w-3xl leading-relaxed text-slate-300">
-        Every casino below has been tested with real deposits and withdrawals and scored against our
-        published 25-point checklist. Rankings reflect scores alone — commercial partnerships never
+        Every casino below is scored against our published 25-point checklist, with licences
+        verified on the Gambling Commission&apos;s public register and offer terms checked against the
+        operator&apos;s own T&amp;Cs. Rankings reflect scores alone — commercial partnerships never
         move a casino up this list. Only UK Gambling Commission-licensed operators are considered.
       </p>
 

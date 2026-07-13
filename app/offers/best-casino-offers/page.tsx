@@ -22,7 +22,7 @@ const FAQS = [
   {
     question: 'What is the best casino offer right now?',
     answer:
-      'Our current top-ranked offer is Aurora Casino’s example welcome package, which combines a full deposit match with free spins whose winnings are paid as cash. The best offer for you depends on your priorities — lowest wagering, no-wagering spins or live casino value — which is why our table shows the significant terms for every deal upfront.',
+      'Our current top-ranked offer is NetBet Casino’s welcome deal: bet £20 on any slot and receive 100 free spins whose winnings are paid as withdrawable cash — no wagering requirement, capped at £100. Cash-paid spins are rarer and fairer than the market-standard bonus-fund offers, which is why it heads our table.',
   },
   {
     question: 'What does wagering requirement mean?',
@@ -95,8 +95,9 @@ export default function BestCasinoOffersPage() {
           <strong className="text-white">fairness</strong> (game weightings, win caps, maximum bet
           clauses), <strong className="text-white">casino quality</strong> (the operator&apos;s score on
           our 25-point review checklist) and <strong className="text-white">jackpot relevance</strong>{' '}
-          (whether bonus funds and spins can be used on jackpot slots). We claim offers with real
-          deposits before recommending them. Read the full methodology on our{' '}
+          (whether bonus funds and spins can be used on jackpot slots). Every offer&apos;s terms are
+          verified against the operator&apos;s own published T&amp;Cs before listing and re-checked
+          weekly. Read the full methodology on our{' '}
           <Link href="/how-we-rank" className="text-gold-400 underline hover:text-gold-300">
             How We Test &amp; Rank
           </Link>{' '}
