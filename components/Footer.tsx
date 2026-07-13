@@ -68,7 +68,16 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t border-ink-700 pt-6 text-xs leading-relaxed text-slate-500">
           <p>
-            © {new Date().getFullYear()} {SITE.name}. All rights reserved. Gambling involves risk —
+            © {new Date().getFullYear()}{' '}
+            <a
+              href="https://www.wager.media"
+              target="_blank"
+              rel="noopener"
+              className="font-semibold text-slate-400 underline hover:text-gold-400"
+            >
+              Wager Media
+            </a>
+            . All rights reserved. Gambling involves risk —
             never bet more than you can afford to lose. Bonuses and offers shown are subject to the
             operator&apos;s full terms and conditions, which you should always read before playing.
             Nothing on this site guarantees winnings; all casino games are games of chance.
