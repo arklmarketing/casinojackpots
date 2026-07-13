@@ -136,7 +136,7 @@ export default function CasinoReviewPage({ params }: Props) {
             top-rated jackpot casinos
           </Link>{' '}
           or see all{' '}
-          <Link href="/offers/best-casino-offers" className="text-gold-400 underline hover:text-gold-300">
+          <Link href="/offers/best-uk-casino-offers" className="text-gold-400 underline hover:text-gold-300">
             current offers
           </Link>
           .

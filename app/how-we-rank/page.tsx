@@ -75,7 +75,7 @@ export default function HowWeRankPage() {
       <h2 className="mt-10 text-2xl font-bold text-white">How offers are scored</h2>
       <p className="mt-4 leading-relaxed text-slate-300">
         Offers on our{' '}
-        <Link href="/offers/best-casino-offers" className="text-gold-400 underline hover:text-gold-300">
+        <Link href="/offers/best-uk-casino-offers" className="text-gold-400 underline hover:text-gold-300">
           Best Casino Offers
         </Link>{' '}
         page are modelled, not eyeballed: we calculate the expected cost of clearing each bonus from

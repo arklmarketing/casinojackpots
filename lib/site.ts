@@ -15,7 +15,8 @@ export const NAV_LINKS = [
   { href: '/jackpots/news', label: 'Jackpot News' },
   { href: '/slots', label: 'Slots' },
   { href: '/games', label: 'Casino Games' },
-  { href: '/offers/best-casino-offers', label: 'Best Offers' },
+  { href: '/offers/best-uk-casino-offers', label: 'Best Offers' },
+  { href: '/bonuses', label: 'Bonuses' },
   { href: '/guides', label: 'Guides' },
 ] as const;
 

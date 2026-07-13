@@ -24,7 +24,7 @@ export function GET(req: NextRequest, { params }: { params: { offerId: string } 
 
   if (!target) {
     // Unknown ID — send the visitor somewhere useful rather than a 404.
-    return NextResponse.redirect(new URL('/offers/best-casino-offers', req.url), 302);
+    return NextResponse.redirect(new URL('/offers/best-uk-casino-offers', req.url), 302);
   }
 
   // Click log — structured JSON, one line per outbound click.

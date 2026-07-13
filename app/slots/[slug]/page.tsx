@@ -106,7 +106,7 @@ export default async function SlotReviewPage({ params }: Props) {
         <h2 className="text-xl font-bold text-white">Our verdict</h2>
         <p className="mt-3 leading-relaxed text-slate-300">{slot.verdict}</p>
         <Link
-          href="/offers/best-casino-offers"
+          href="/offers/best-uk-casino-offers"
           className="mt-4 inline-block rounded-lg bg-gold-500 px-5 py-2.5 font-bold text-ink-950 hover:bg-gold-400"
         >
           Where to play {slot.name} →

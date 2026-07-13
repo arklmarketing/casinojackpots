@@ -56,7 +56,7 @@ export default async function HomePage() {
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href="/offers/best-casino-offers"
+            href="/offers/best-uk-casino-offers"
             className="rounded-lg bg-gold-500 px-6 py-3 font-bold text-ink-950 transition-colors hover:bg-gold-400"
           >
             Best Casino Offers
@@ -120,7 +120,7 @@ export default async function HomePage() {
       <section className="mt-12">
         <div className="mb-5 flex items-end justify-between">
           <h2 className="text-2xl font-bold text-white">Top casino offers this month</h2>
-          <Link href="/offers/best-casino-offers" className="text-sm font-semibold text-gold-400 hover:text-gold-300">
+          <Link href="/offers/best-uk-casino-offers" className="text-sm font-semibold text-gold-400 hover:text-gold-300">
             View all →
           </Link>
         </div>

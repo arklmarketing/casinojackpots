@@ -8,7 +8,13 @@ const nextConfig = {
       // Hub convenience: /offers -> money page (301, passes equity)
       {
         source: '/offers',
-        destination: '/offers/best-casino-offers',
+        destination: '/offers/best-uk-casino-offers',
+        permanent: true,
+      },
+      // Money page renamed to UK-specific slug
+      {
+        source: '/offers/best-casino-offers',
+        destination: '/offers/best-uk-casino-offers',
         permanent: true,
       },
       // Example legacy-URL pattern (adjust when migrating an old site)
@@ -18,11 +24,11 @@ const nextConfig = {
         permanent: true,
       },
       // Retired demo casino pages → offers hub
-      { source: '/casinos/aurora-casino', destination: '/offers/best-casino-offers', permanent: true },
-      { source: '/casinos/kings-vault', destination: '/offers/best-casino-offers', permanent: true },
-      { source: '/casinos/neon-spin', destination: '/offers/best-casino-offers', permanent: true },
-      { source: '/casinos/grand-marina', destination: '/offers/best-casino-offers', permanent: true },
-      { source: '/casinos/lucky-fell', destination: '/offers/best-casino-offers', permanent: true },
+      { source: '/casinos/aurora-casino', destination: '/offers/best-uk-casino-offers', permanent: true },
+      { source: '/casinos/kings-vault', destination: '/offers/best-uk-casino-offers', permanent: true },
+      { source: '/casinos/neon-spin', destination: '/offers/best-uk-casino-offers', permanent: true },
+      { source: '/casinos/grand-marina', destination: '/offers/best-uk-casino-offers', permanent: true },
+      { source: '/casinos/lucky-fell', destination: '/offers/best-uk-casino-offers', permanent: true },
     ];
   },
   async headers() {

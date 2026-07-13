@@ -12,7 +12,7 @@ export default function NotFound() {
         <Link href="/" className="rounded-lg bg-gold-500 px-5 py-2.5 font-bold text-ink-950 hover:bg-gold-400">
           Home
         </Link>
-        <Link href="/offers/best-casino-offers" className="rounded-lg border border-ink-600 px-5 py-2.5 font-semibold text-slate-200 hover:border-gold-600">
+        <Link href="/offers/best-uk-casino-offers" className="rounded-lg border border-ink-600 px-5 py-2.5 font-semibold text-slate-200 hover:border-gold-600">
           Best Casino Offers
         </Link>
         <Link href="/jackpots/news" className="rounded-lg border border-ink-600 px-5 py-2.5 font-semibold text-slate-200 hover:border-gold-600">

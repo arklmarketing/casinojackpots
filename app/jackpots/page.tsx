@@ -149,7 +149,7 @@ export default async function JackpotsHubPage() {
             See which UK-licensed casinos carry the deepest jackpot libraries — and the offers that
             actually work on jackpot slots ({progressives.length} progressives reviewed).
           </p>
-          <Link href="/offers/best-casino-offers" className="mt-3 inline-block font-semibold text-gold-400 hover:text-gold-300">
+          <Link href="/offers/best-uk-casino-offers" className="mt-3 inline-block font-semibold text-gold-400 hover:text-gold-300">
             Best jackpot casino offers →
           </Link>
         </div>

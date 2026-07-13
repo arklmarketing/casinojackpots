@@ -10,7 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: absoluteUrl('/'), lastModified: now, changeFrequency: 'daily', priority: 1 },
-    { url: absoluteUrl('/offers/best-casino-offers'), lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: absoluteUrl('/offers/best-uk-casino-offers'), lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: absoluteUrl('/bonuses'), lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: absoluteUrl('/bonuses/free-casino-bonus'), lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: absoluteUrl('/jackpots'), lastModified: now, changeFrequency: 'daily', priority: 0.9 },
     { url: absoluteUrl('/jackpots/news'), lastModified: now, changeFrequency: 'daily', priority: 0.9 },
     { url: absoluteUrl('/slots'), lastModified: now, changeFrequency: 'weekly', priority: 0.8 },

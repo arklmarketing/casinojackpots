@@ -126,7 +126,7 @@ export default function JackpotNewsArticlePage({ params }: Props) {
                 ),
             )}
             <li>
-              <Link href="/offers/best-casino-offers" className="text-gold-400 hover:text-gold-300">
+              <Link href="/offers/best-uk-casino-offers" className="text-gold-400 hover:text-gold-300">
                 Best casino offers for jackpot slots →
               </Link>
             </li>
