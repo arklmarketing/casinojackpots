@@ -2,6 +2,28 @@
   "README": "Queue of verified jackpot events for the weekly content engine. Add an item with processed:false and the Monday GitHub Action will draft an article from it and open a pull request for review. Only add facts you have verified from provider announcements or reputable public records — the generator is forbidden from inventing specifics. The example below is already marked processed and will never publish.",
   "items": [
     {
+      "processed": false,
+      "amount": "67000",
+      "currency": "GBP",
+      "game": "Fluffy Favourites Mega Jackpot",
+      "casino": "Betfred",
+      "date": "2026-04-17",
+      "location": "United Kingdom",
+      "sourceNotes": "Source: Betfred Insights (operator-published, 17 April 2026). Winner Paul Taylor (username mouth1311), an events driver currently touring Germany with a music act, won GBP 67,000 playing GBP 1.50 lines on Fluffy Favourites Mega Jackpot. Quoted: 'I was staggered when I won, I couldn't believe it.' Plans: new car, dental work, paying off credit cards. Game: 5-reel, 25-payline slot with tiered jackpot levels. URL: https://insights.betfred.com/bingo/betfred-big-winner-customer-wins-67k-on-fluffy-favourites-mega-jackpot/",
+      "primaryKeyword": "Fluffy Favourites jackpot win"
+    },
+    {
+      "processed": false,
+      "amount": "144604.97",
+      "currency": "GBP",
+      "game": "Crystal Mirror",
+      "casino": "Betfred",
+      "date": "2025-10-09",
+      "location": "Hertfordshire, United Kingdom",
+      "sourceNotes": "Source: Betfred Insights (operator-published, 9 October 2025). Winner Sam, 32, from Hertfordshire (originally Stockport), won GBP 144,604.97 from a GBP 5 bet on the slot Crystal Mirror. Quoted: 'The Jackpot is always advertised on screen and you think it is... never won, but I am proof it is.' Plans to spend winnings on a trip to Antarctica in 2026. Betfred boss Fred Done also gave a statement congratulating him. URL: https://insights.betfred.com/newsroom/big-winners/betfred-big-winner-144k-slot-winner-to-pay-for-polar-expedition/",
+      "primaryKeyword": "slot jackpot winner UK"
+    },
+    {
       "processed": true,
       "amount": "11498211",
       "currency": "GBP",
