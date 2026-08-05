@@ -1,6 +1,8 @@
-# Content Engine — drafts a jackpot news article every Monday morning from
-# the next unprocessed item in content/news-queue.json and opens a pull
-# request for review. Merge the PR to publish (Vercel deploys automatically).
+# Content Engine — drafts a jackpot news article every morning from the
+# next unprocessed item in content/news-queue.json and opens a pull request
+# for review. Merge the PR to publish (Vercel deploys automatically).
+# If the queue is empty that day, the script exits quietly — no article is
+# ever invented to fill a gap.
 #
 # Setup (one-time): add ANTHROPIC_API_KEY in GitHub → repo Settings →
 # Secrets and variables → Actions → New repository secret.
@@ -8,11 +10,11 @@
 # "Read and write permissions" + "Allow GitHub Actions to create and
 # approve pull requests".
 
-name: Weekly jackpot news draft
+name: Daily jackpot news draft
 
 on:
   schedule:
-    - cron: '0 7 * * 1' # Mondays 07:00 UTC
+    - cron: '0 7 * * *' # Every day, 07:00 UTC
   workflow_dispatch: {} # allow manual runs from the Actions tab
 
 permissions:
@@ -48,8 +50,8 @@ jobs:
       - name: Open pull request for review
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: 'Content engine: weekly jackpot news draft'
-          title: 'Weekly jackpot news draft — review before publishing'
+          commit-message: 'Content engine: daily jackpot news draft'
+          title: 'Daily jackpot news draft — review before publishing'
           body: |
             Auto-drafted by the content engine from the next item in
             `content/news-queue.json`.
@@ -61,5 +63,5 @@ jobs:
             - [ ] Responsible gambling paragraph present
 
             Merging this PR publishes the article (Vercel auto-deploys).
-          branch: content-engine/weekly-news
+          branch: content-engine/daily-news
           delete-branch: true
