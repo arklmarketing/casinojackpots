@@ -13,7 +13,7 @@
       "primaryKeyword": "Fluffy Favourites jackpot win"
     },
     {
-      "processed": false,
+      "processed": true,
       "amount": "144604.97",
       "currency": "GBP",
       "game": "Crystal Mirror",
